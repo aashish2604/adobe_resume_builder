@@ -1,30 +1,27 @@
 const express = require("express");
 
 class AbstractRouteController {
-    router;
-    path;
+  router;
+  path;
   constructor() {
     if (new.target === AbstractRouteController) {
-        throw new TypeError("Cannot instantiate abstract class");
+      throw new TypeError("Cannot instantiate abstract class");
     }
     this.router = express.Router();
   }
 
-  async InitializeController(link) {
-    console.log(link + this.path);
-    await this.InitializeGet();
-    await this.InitializePost();
+  async InitializeController(link,checkHeaders) {
+    await this.InitializePost(checkHeaders);
   }
 
-  async runService(req, resp) {
-    resp.send(`runService Method for ${this.path} does not exist!`);
+  async runService(req, res) {
+    res.send(`runService Method for ${this.path} does not exist!`);
   }
 
-  async InitializeGet() {
-    this.router.get(this.path, this.runService.bind(this));
-  }
-
-  async InitializePost() {
+  async InitializePost(checkHeaders) {
+    if(checkHeaders!==undefined)
+    this.router.post(this.path,checkHeaders, this.runService.bind(this));
+    else 
     this.router.post(this.path, this.runService.bind(this));
   }
 }
