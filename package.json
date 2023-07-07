@@ -10,6 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@adobe/pdfservices-node-sdk": "^3.4.0"
+    "@adobe/pdfservices-node-sdk": "^3.4.0",
+    "@types/winston": "^2.4.4",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "winston": "^3.9.0"
   }
 }
