@@ -1,15 +1,15 @@
-const Resume = require("../src/services/resume");
-const Testcases = require("../src/constants/tescases");
+const Resume = require("../../src/services/resume");
+const Testcases = require("../../src/constants/tescases");
 const fs = require("fs");
-const ObjectTransformer = require("../src/services/generate_resume/object_transformer");
-const ResumeGenerator = require("../src/services/generate_resume/resume_generator");
+const ObjectTransformer = require("../../src/services/generate_resume/object_transformer");
+const ResumeGenerator = require("../../src/services/generate_resume/resume_generator");
 
 const OUTPUT = "./outputs/generatedResume.pdf";
 
 const ResumeTestcase = Testcases.ResumeTestcase;
 const testcases = new ResumeTestcase();
-jest.mock("../src/services/generate_resume/resume_generator");
-jest.mock("../src/services/generate_resume/object_transformer");
+jest.mock("../../src/services/generate_resume/resume_generator");
+jest.mock("../../src/services/generate_resume/object_transformer");
 
 const mockJsonInput = testcases.validInput;
 

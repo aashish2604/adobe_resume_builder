@@ -1,5 +1,5 @@
-const ResumeGenerator = require("../src/services/generate_resume/resume_generator");
-const Testcases = require("../src/constants/tescases");
+const ResumeGenerator = require("../../src/services/generate_resume/resume_generator");
+const Testcases = require("../../src/constants/tescases");
 const PDFServicesSdk = require("@adobe/pdfservices-node-sdk");
 
 const resumeGenerator = new ResumeGenerator();

@@ -1,5 +1,5 @@
-const GenerateResumeRouteController = require('../src/routes/generate_pdf_route_controller');
-const InitializeRoutes=require("../src/core/intialize_routes");
+const GenerateResumeRouteController = require('../../src/routes/generate_pdf_route_controller');
+const InitializeRoutes=require("../../src/core/intialize_routes");
 
 describe('InitializeRoutes', () => {
   describe("Initialize",()=>{

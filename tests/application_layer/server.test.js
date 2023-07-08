@@ -1,7 +1,7 @@
 const express = require('express');
-const InitializeMiddleWare = require('../src/core/initialize_middleware');
-const InitializeRoutes = require('../src/core/intialize_routes');
-const { server } = require("../src/core/server");
+const InitializeMiddleWare = require('../../src/core/initialize_middleware');
+const InitializeRoutes = require('../../src/core/intialize_routes');
+const { server } = require("../../src/core/server");
 
 jest.mock('express', () => {
     const app = {

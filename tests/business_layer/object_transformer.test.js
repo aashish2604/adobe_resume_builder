@@ -1,5 +1,5 @@
-const ObjectTransformer=require('../src/services/generate_resume/object_transformer');
-const Testcases=require('../src/constants/tescases');
+const ObjectTransformer=require('../../src/services/generate_resume/object_transformer');
+const Testcases=require('../../src/constants/tescases');
 
 const objectTransformer=new ObjectTransformer();
 const ObjectTransformerTestcase=Testcases.ObjectTransformerTestcase;

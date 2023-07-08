@@ -1,9 +1,9 @@
 const express = require("express");
 const request = require("supertest");
-const Logger = require("../src/utils/logger");
-const CommonMiddleware = require("../src/middleware/common_middleware");
-const StatusConstants=require("../src/constants/status_constants");
-const ErrorHandlingMiddleware=require("../src/middleware/error_middleware");
+const Logger = require("../../src/utils/logger");
+const CommonMiddleware = require("../../src/middleware/common_middleware");
+const StatusConstants=require("../../src/constants/status_constants");
+const ErrorHandlingMiddleware=require("../../src/middleware/error_middleware");
 
 describe("Common Middleware tester", () => {
   let app;

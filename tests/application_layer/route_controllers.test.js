@@ -1,9 +1,9 @@
-const AbstractRouteController=require("../src/routes/abstract_route_controller");
-const GenerateResumeRouteController=require("../src/routes/generate_pdf_route_controller");
-const Resume=require("../src/services/resume");
-const validationSchema=require("../src/validators/request_validation_schema");
-const StatusConstants=require("../src/constants/status_constants");
-const Testcases = require("../src/constants/tescases");
+const AbstractRouteController=require("../../src/routes/abstract_route_controller");
+const GenerateResumeRouteController=require("../../src/routes/generate_pdf_route_controller");
+const Resume=require("../../src/services/resume");
+const validationSchema=require("../../src/validators/request_validation_schema");
+const StatusConstants=require("../../src/constants/status_constants");
+const Testcases = require("../../src/constants/tescases");
 
 const ResumeTestcase = Testcases.ResumeTestcase;
 const testcases = new ResumeTestcase();
