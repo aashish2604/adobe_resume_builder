@@ -19,6 +19,5 @@ class InitializeRoutes {
 module.exports = InitializeRoutes;
 
 // TODO: logging with winston
-// TODO: unit tests
-// TODO: error handling
 // TODO: adding consts
+// TODO: Debug CommonMiddleWare
