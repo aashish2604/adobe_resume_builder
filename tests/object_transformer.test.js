@@ -17,8 +17,22 @@ describe('object transformer tester',()=>{
         expect(result).toEqual({});
     });
 
-    test('private functions return [] if given empty input',()=>{
-        const result=objectTransformer.transform(testcases.privateFunctionEmptyInput);
-        expect(result).toEqual(testcases.privateFunctionEmptyOutput);
+    test('#educationTransformer returns [] if given empty input',()=>{
+        const result=objectTransformer.transform(testcases.educationTransformerEmptyInput);
+        expect(result).toEqual(testcases.educationTransformerEmptyOutput);
+    });
+
+    test('#experienceTransformer returns [] if given empty input',()=>{
+        const result=objectTransformer.transform(testcases.experienceTransformerEmptyInput);
+        expect(result).toEqual(testcases.experienceTransformerEmptyOutput);
+    });
+
+    test('#achievementsTransformer returns [] if given empty input',()=>{
+        const result=objectTransformer.transform(testcases.achievementsTransformerEmptyInput);
+        expect(result).toEqual(testcases.achievementsTransformerEmptyOutput);
+    });
+
+    test('Throws error is the input is invalid',()=>{
+        expect(()=>objectTransformer.transform()).toThrow();
     });
 })
