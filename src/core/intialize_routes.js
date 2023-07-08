@@ -18,7 +18,7 @@ class InitializeRoutes {
 
 module.exports = InitializeRoutes;
 
-// TODO: recieve request
 // TODO: logging with winston
 // TODO: unit tests
 // TODO: error handling
+// TODO: adding consts
