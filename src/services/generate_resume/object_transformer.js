@@ -36,6 +36,7 @@ class ObjectTransformer{
   }
 
   transform(input){
+    if(Object.keys(input).length===0) return {};
     let response;
     response={
       Name: input.personal_information.name,
