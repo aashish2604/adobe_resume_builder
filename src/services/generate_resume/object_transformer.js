@@ -1,12 +1,24 @@
+const AppConstants=require("../../constants/app_constants");
+
+const appConstants=new AppConstants();
+
 class ObjectTransformer {
   
+  urlParser(data) {
+    const regex = appConstants.ANCHOR_TAG_REGEX;
+    const secondRegex=appConstants.URL_EXCL_ANCHOR_REGEX;
+    const output = data.replace(regex, (match, innerText) => `<a href="${match.replace(`[${innerText}]`,"")}">${innerText}</a>`);
+    const result = output.replace(secondRegex, '<a href="$&">$&</a>');
+    return result;
+  }
+
   #educationTransformer(data) {
     let responseData = [];
     data.forEach((element) => {
       responseData.push({
-        SchoolName: element.school_name,
-        Year: element.passing_year,
-        Description: element.description,
+        SchoolName: this.urlParser(element.school_name),
+        Year: this.urlParser(element.passing_year),
+        Description: this.urlParser(element.description),
       });
     });
     return responseData;
@@ -16,9 +28,9 @@ class ObjectTransformer {
     let responseData = [];
     data.forEach((element) => {
       responseData.push({
-        CompanyName: element.company_name,
-        Year: element.passing_year,
-        Description: element.responsibilities,
+        CompanyName: this.urlParser(element.company_name),
+        Year: this.urlParser(element.passing_year),
+        Description: this.urlParser(element.responsibilities),
       });
     });
     return responseData;
@@ -28,8 +40,8 @@ class ObjectTransformer {
     let responseData = [];
     data.forEach((element) => {
       responseData.push({
-        Type: element.field,
-        Description: element.awards,
+        Type: this.urlParser(element.field),
+        Description: this.urlParser(element.awards),
       });
     });
     return responseData;
@@ -45,9 +57,9 @@ class ObjectTransformer {
         EmailAddress: input.personal_information.email_address,
         PhoneNumber: input.personal_information.phone_number,
         LinkedIn: `<a href="${input.personal_information.linkedin_url}">linkedIn</a>`,
-        JobTitle: input.job_title,
-        Summary: input.career_objective,
-        Skills: input.skills,
+        JobTitle: this.urlParser(input.job_title),
+        Summary: this.urlParser(input.career_objective),
+        Skills: input.skills.map((str)=>this.urlParser(str)),
         Education: this.#educationTransformer(input.education),
         Experience: this.#experienceTransformer(input.experience),
         Achievements: this.#achievementsTransformer(input.achievements),
