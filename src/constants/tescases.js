@@ -405,8 +405,164 @@ class ResumeTestcase{
   };
 }
 
+class RequestValidatorTestcase{
+  validResumeRequest = {
+    template_id: "1",
+    personal_information: {
+      name: "John",
+      last_name: "Doe",
+      email_address: "john.doe@example.com",
+      phone_number: "+91 1234567890",
+      linkedin_url: "https://www.linkedin.com/in/johndoe/",
+    },
+    job_title: "Software Developer",
+    career_objective: "To contribute to the software development industry",
+    skills: ["JavaScript", "Node.js", "React"],
+    education: [
+      {
+        school_name: "ABC University",
+        passing_year: "2022",
+        description: "Bachelor's Degree in Computer Science",
+      },
+    ],
+    experience: [
+      {
+        company_name: "XYZ Company",
+        passing_year: "2023",
+        responsibilities: "Developing and maintaining web applications",
+      },
+    ],
+    achievements: [
+      {
+        field: "Technology",
+        awards: "Best Programmer of the Year",
+      },
+    ],
+  };
+
+  emptyEducation= {
+    template_id: "1",
+    personal_information: {
+      name: "John",
+      last_name: "Doe",
+      email_address: "john.doe@example.com",
+      phone_number: "+91 1234567890",
+      linkedin_url: "https://www.linkedin.com/in/johndoe/",
+    },
+    job_title: "Software Developer",
+    career_objective: "To contribute to the software development industry",
+    skills: ["JavaScript", "Node.js", "React"],
+    education: [],
+    experience: [
+      {
+        company_name: "XYZ Company",
+        passing_year: "2023",
+        responsibilities: "Developing and maintaining web applications",
+      },
+    ],
+    achievements: [
+      {
+        field: "Technology",
+        awards: "Best Programmer of the Year",
+      },
+    ],
+  };
+
+  emptyExperience = {
+    template_id: "1",
+    personal_information: {
+      name: "John",
+      last_name: "Doe",
+      email_address: "john.doe@example.com",
+      phone_number: "+91 1234567890",
+      linkedin_url: "https://www.linkedin.com/in/johndoe/",
+    },
+    job_title: "Software Developer",
+    career_objective: "To contribute to the software development industry",
+    skills: ["JavaScript", "Node.js", "React"],
+    education: [
+      {
+        school_name: "ABC University",
+        passing_year: "2022",
+        description: "Bachelor's Degree in Computer Science",
+      },
+    ],
+    experience: [],
+    achievements: [
+      {
+        field: "Technology",
+        awards: "Best Programmer of the Year",
+      },
+    ],
+  };
+
+  emptyAchievements = {
+    template_id: "1",
+    personal_information: {
+      name: "John",
+      last_name: "Doe",
+      email_address: "john.doe@example.com",
+      phone_number: "+91 1234567890",
+      linkedin_url: "https://www.linkedin.com/in/johndoe/",
+    },
+    job_title: "Software Developer",
+    career_objective: "To contribute to the software development industry",
+    skills: ["JavaScript", "Node.js", "React"],
+    education: [
+      {
+        school_name: "ABC University",
+        passing_year: "2022",
+        description: "Bachelor's Degree in Computer Science",
+      },
+    ],
+    experience: [
+      {
+        company_name: "XYZ Company",
+        passing_year: "2023",
+        responsibilities: "Developing and maintaining web applications",
+      },
+    ],
+    achievements: [],
+  };
+
+  invalidResumeRequest = {
+    template_id: "4",
+    personal_information: {
+      name: "John",
+      last_name: "",
+      email_address: "john.doe",
+      phone_number: "123",
+      linkedin_url: "invalid-linkedin-url",
+    },
+    job_title: "",
+    career_objective: "",
+    skills: ["", "Node.js", "React"],
+    education: [
+      {
+        school_name: "",
+        passing_year: "2022",
+        description: "",
+      },
+    ],
+    experience: [
+      {
+        company_name: "",
+        passing_year: "",
+        responsibilities: "",
+      },
+    ],
+    achievements: [
+      {
+        field: "",
+        awards: "",
+      },
+    ],
+  };
+}
+
 module.exports = {  
     ObjectTransformerTestcase,
     ResumeGeneratorTestcase,
-    ResumeTestcase
+    ResumeTestcase,
+    RequestValidatorTestcase
 };
