@@ -62,7 +62,7 @@ describe('GenerateResumeRouteController tester', () => {
     controller.checkHeaders(mockRequest, mockResponse, mockNext);
 
     expect(mockResponse.status).toHaveBeenCalledWith(StatusConstants.code400);
-    expect(mockResponse.send).toHaveBeenCalledWith(StatusConstants.code400Message);
+    expect(mockResponse.send).toHaveBeenCalledWith({"errorCode": 400, "errorMessage": "Bad Request", "message": "The request headers must have Content-type: application/json"});
     expect(mockNext).not.toHaveBeenCalled();
   });
 
@@ -74,7 +74,7 @@ describe('GenerateResumeRouteController tester', () => {
     controller.checkHeaders(mockRequest, mockResponse, mockNext);
 
     expect(mockResponse.status).toHaveBeenCalledWith(StatusConstants.code400);
-    expect(mockResponse.send).toHaveBeenCalledWith(StatusConstants.code400Message);
+    expect(mockResponse.send).toHaveBeenCalledWith({"errorCode": 400, "errorMessage": "Bad Request", "message": "The request headers must have Accept: application/pdf"});
     expect(mockNext).not.toHaveBeenCalled();
   });
 
@@ -105,7 +105,8 @@ describe('GenerateResumeRouteController tester', () => {
     expect(mockResponse.status).toHaveBeenCalledWith(StatusConstants.code400);
     expect(mockResponse.send).toHaveBeenCalledWith({
       message: errorMessage,
-      errorCode: StatusConstants.code400Message,
+      errorCode: StatusConstants.code400,
+      errorMessage: StatusConstants.code400Message
     });
     expect(mockResponse.setHeader).not.toHaveBeenCalled();
     expect(mockResponse.sendFile).not.toHaveBeenCalled();

@@ -2,6 +2,11 @@
 const PDFServicesSdk = require("@adobe/pdfservices-node-sdk");
 const fs = require("fs");
 const OUTPUT = "./outputs/generatedResume.pdf";
+const AppSecrets=require("../../constants/secrets");
+const AppConstants=require("../../constants/app_constants");
+
+const appConstants=new AppConstants();
+const appSecrets=new AppSecrets();
 
 class ResumeGenerator {
   credentials;
@@ -10,8 +15,8 @@ class ResumeGenerator {
     // Set up our credentials object.
     this.credentials =
       PDFServicesSdk.Credentials.servicePrincipalCredentialsBuilder()
-        .withClientId("eaa0b5d4f67b492b82ba816f774525f2")
-        .withClientSecret("p8e-JcC5gLXhSNWw9q8anCLx9ysjoe48qx2y")
+        .withClientId(appSecrets.CLIENT_ID)
+        .withClientSecret(appSecrets.CLIENT_SECRET)
         .build();
 
     if (fs.existsSync(OUTPUT)) fs.unlinkSync(OUTPUT);
@@ -19,11 +24,11 @@ class ResumeGenerator {
 
   getTemplateDoc(template){
     if(template==="3")
-    return "LinkTemplate.docx";
+    return appConstants.RESUME_LINKED_TEMPLATE;
     else if(template==="2")
-    return "ImageTemplate.docx";
+    return appConstants.RESUME_IMAGE_TEMPLATE;
     else
-    return "BasicTemplate.docx";
+    return appConstants.RESUME_BASIC_TEMPLATE;
   }
 
   async generate(jsonData,template) {
