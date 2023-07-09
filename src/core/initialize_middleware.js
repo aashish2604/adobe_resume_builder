@@ -14,6 +14,9 @@ class InitializeMiddleWare {
     let errorMiddleware = new ErrorHandlingMiddleware(app);
 
     await errorMiddleware.handle404Error();
+    await errorMiddleware.handle400Error();
+    await errorMiddleware.handle401Error();
+    await errorMiddleware.handle500Error();
   }
 }
 

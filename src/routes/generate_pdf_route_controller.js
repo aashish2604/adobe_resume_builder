@@ -16,12 +16,20 @@ class GenerateResumeRouteController extends AbstractRouteController {
     if (req.headers["content-type"] !== "application/json") {
       return res
         .status(StatusConstants.code400)
-        .send(StatusConstants.code400Message);
+        .send({
+          message: "The request headers must have Content-type: application/json",
+          errorCode: StatusConstants.code400,
+          errorMessage: StatusConstants.code400Message
+        });
     }
     if (req.headers["accept"] !== "application/pdf") {
       return res
         .status(StatusConstants.code400)
-        .send(StatusConstants.code400Message);
+        .send({
+          message: "The request headers must have Accept: application/pdf",
+          errorCode: StatusConstants.code400,
+          errorMessage: StatusConstants.code400Message
+        });
     }
     next();
   }
@@ -33,7 +41,8 @@ class GenerateResumeRouteController extends AbstractRouteController {
     if (error) {
       res.status(StatusConstants.code400).send({
         message: error.message,
-        errorCode: StatusConstants.code400Message,
+        errorCode: StatusConstants.code400,
+        errorMessage: StatusConstants.code400Message
       });
     } else {
       Resume.generateResume(jsonInput)

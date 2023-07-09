@@ -21,3 +21,4 @@ module.exports = InitializeRoutes;
 // TODO: logging with winston
 // TODO: adding consts
 // TODO: Debug CommonMiddleWare
+// TODO: Can the arrays in request be empty
