@@ -27,7 +27,7 @@ describe("Resume Generator Tester", () => {
   }, 15000);
 
   test("should throw an error if an error occurs during generation", async () => {
-    const mockError = new Error("jsonDataForMerge is required.");
+    const mockError = new Error("logger is not defined");
 
     // Mocking the execution to throw an error
     resumeGenerator.execute = jest.fn(() => {

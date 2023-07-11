@@ -1,6 +1,5 @@
 const Resume = require("../../src/services/resume");
 const Testcases = require("../../src/constants/tescases");
-const fs = require("fs");
 const ObjectTransformer = require("../../src/services/generate_resume/object_transformer");
 const ResumeGenerator = require("../../src/services/generate_resume/resume_generator");
 

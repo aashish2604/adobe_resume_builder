@@ -4,6 +4,7 @@ const Resume=require("../../src/services/resume");
 const validationSchema=require("../../src/validators/request_validation_schema");
 const StatusConstants=require("../../src/constants/status_constants");
 const Testcases = require("../../src/constants/tescases");
+const HealthCheckRouteController=require("../../src/routes/health_route_controller");
 
 const ResumeTestcase = Testcases.ResumeTestcase;
 const testcases = new ResumeTestcase();
@@ -111,4 +112,46 @@ describe('GenerateResumeRouteController tester', () => {
     expect(mockResponse.setHeader).not.toHaveBeenCalled();
     expect(mockResponse.sendFile).not.toHaveBeenCalled();
   });
+
+  
 });
+
+
+describe("HealthCheckRouteController", () => {
+  let healthCheckController;
+
+  beforeEach(() => {
+    healthCheckController = new HealthCheckRouteController();
+  });
+
+  it("should extend AbstractRouteController", () => {
+    expect(healthCheckController).toBeInstanceOf(AbstractRouteController);
+  });
+
+  it("should have the correct route path", () => {
+    expect(healthCheckController.path).toBe("/health");
+  });
+
+
+  describe("runService method", () => {
+    let mockRequest;
+    let mockResponse;
+
+    beforeEach(() => {
+      mockRequest = {};
+      mockResponse = {
+        send: jest.fn(),
+      };
+    });
+
+    afterEach(() => {
+      mockResponse.send.mockClear();
+    });
+
+    it("should send 'Server is healthy' response", async () => {
+      await healthCheckController.runService(mockRequest, mockResponse);
+      expect(mockResponse.send).toHaveBeenCalledWith("Server is healthy");
+    });
+  });
+});
+

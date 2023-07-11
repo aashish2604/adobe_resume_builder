@@ -1,4 +1,3 @@
-const Joi = require("joi");
 const { resumeRequestSchema } = require("../../src/validators/request_validation_schema"); 
 const Testcases = require("../../src/constants/tescases");
 
@@ -18,20 +17,25 @@ describe('resumeRequestSchema', () => {
     expect(error).toBeDefined();
   });
 
-  it('should validate a valid resume request object if everything is valid and education is empty', () => {
+  it('should not validate a valid resume request object if everything is valid and education is empty', () => {
     const { error } = resumeRequestSchema.validate(testcases.emptyEducation);
 
-    expect(error).toBeUndefined();
+    expect(error).toBeDefined();
   });
-  it('should validate a valid resume request object if everything is valid and experience is empty', () => {
+  it('should not validate a valid resume request object if everything is valid and experience is empty', () => {
     const { error } = resumeRequestSchema.validate(testcases.emptyExperience);
 
-    expect(error).toBeUndefined();
+    expect(error).toBeDefined();
   });
-  it('should validate a valid resume request object if everything is valid and achievements is empty', () => {
+  it('should not validate a valid resume request object if everything is valid and achievements is empty', () => {
     const { error } = resumeRequestSchema.validate(testcases.emptyAchievements);
 
-    expect(error).toBeUndefined();
+    expect(error).toBeDefined();
+  });
+  it('should not validate a valid resume request object if everything is valid and skills is empty', () => {
+    const { error } = resumeRequestSchema.validate(testcases.emptySkills);
+
+    expect(error).toBeDefined();
   });
 
 });

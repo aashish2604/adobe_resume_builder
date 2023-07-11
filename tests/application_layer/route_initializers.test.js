@@ -23,7 +23,7 @@ describe('InitializeRoutes', () => {
       const routes = await InitializeRoutes.getRoutes(link);
   
       expect(routes).toBeInstanceOf(Array);
-      expect(routes.length).toBe(1);
+      expect(routes.length).toBe(2);
       expect(routes[0]).toBeInstanceOf(GenerateResumeRouteController);
     });
   })
