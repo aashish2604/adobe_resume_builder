@@ -45,3 +45,6 @@
 {"level":"info","timestamp":"2023-07-11T08:29:38.513Z"}
 {"level":"info","message":"Server started listening at localhost on port 4000.","timestamp":"2023-07-11T08:29:38.886Z"}
 {"level":"info","message":"Health check successful","timestamp":"2023-07-11T08:29:39.736Z"}
+{"level":"info","message":"Server started listening at localhost on port 4000.","timestamp":"2023-07-11T09:19:00.769Z"}
+{"level":"info","message":"Server started listening at localhost on port 4000.","timestamp":"2023-07-11T10:26:57.997Z"}
+{"level":"info","message":"Health check successful","timestamp":"2023-07-11T10:27:21.519Z"}
