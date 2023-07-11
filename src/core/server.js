@@ -11,7 +11,7 @@ async function server() {
   let app = express();
 
   let host = ServerConfig.host;
-  let port = ServerConfig.port;
+  let port = process.env.PORT || ServerConfig.port;
 
   let link = `http://${host}:${port}`;
 
