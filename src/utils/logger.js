@@ -4,6 +4,10 @@ const { options } = require('../../configs/logger_config.json');
 class Logger {
   constructor() {
     this.logger = winston.createLogger({
+      format: winston.format.combine(
+        winston.format.timestamp(), // Add a timestamp to the logs
+        winston.format.json() // Use JSON format for log messages
+      ),
       transports: [
         new winston.transports.Console(options.console),
         new winston.transports.File(options.file)

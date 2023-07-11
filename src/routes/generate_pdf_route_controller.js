@@ -2,6 +2,9 @@ const AbstractRouteController = require("./abstract_route_controller");
 const StatusConstants = require("../constants/status_constants");
 const Resume = require("../services/resume");
 const validationSchema = require("../validators/request_validation_schema");
+const Logger=require("../utils/logger");
+
+const logger=Logger.getLogger();
 
 const rootpath = process.cwd();
 
@@ -9,7 +12,7 @@ class GenerateResumeRouteController extends AbstractRouteController {
   constructor(link) {
     super();
     this.path = "/resume";
-    this.InitializeController(link, this.checkHeaders);
+    this.InitializeController(link, this.checkHeaders,"post");
   }
 
   checkHeaders(req, res, next) {
@@ -51,7 +54,10 @@ class GenerateResumeRouteController extends AbstractRouteController {
           res.setHeader("Content-type", "application/pdf");
           res.sendFile(rootpath + "/outputs/generatedResume.pdf");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          logger.info(err.message);
+          res.status(StatusConstants.code500).send(StatusConstants.code500Message)
+        });
     }
   }
 }

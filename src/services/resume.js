@@ -1,5 +1,8 @@
 const ResumeGenerator = require("./generate_resume/resume_generator");
 const ObjectTransformer = require("./generate_resume/object_transformer");
+const Logger=require("../utils/logger");
+
+const logger=Logger.getLogger();
 
 const OUTPUT = "./outputs/generatedResume.pdf";
 
@@ -16,7 +19,7 @@ class Resume {
       );
       await response.saveAsFile(OUTPUT);
     } catch (error) {
-      console.log(error);
+      logger.info(error.message);
       throw error;
     }
   }

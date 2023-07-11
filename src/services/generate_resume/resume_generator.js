@@ -58,7 +58,7 @@ class ResumeGenerator {
       const response = await documentMergeOperation.execute(executionContext);
       return response;
     } catch (error) {
-      console.error(error);
+      logger.info(error.message);
       throw error;
     }
   }

@@ -1,5 +1,6 @@
 
 const GenerateResumeRouteController = require('../routes/generate_pdf_route_controller');
+const HealthCheckRouteController = require('../routes/health_route_controller');
 
 class InitializeRoutes {
   static async Initialize(app, link) {
@@ -12,13 +13,9 @@ class InitializeRoutes {
   static async getRoutes(link) {
     let routes = [];
     routes.push(new GenerateResumeRouteController(link));
+    routes.push(new HealthCheckRouteController(link));
     return Promise.resolve(routes);
   }
 }
 
 module.exports = InitializeRoutes;
-
-// TODO: logging with winston
-// TODO: adding consts
-// TODO: Debug CommonMiddleWare
-// TODO: Can the arrays in request be empty

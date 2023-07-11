@@ -34,7 +34,7 @@ const resumeRequestSchema = Joi.object({
     .required()
     .messages({"string.empty":"Please provide a valid career_objective"}),
   skills: Joi.array()
-    .items(Joi.string().required().messages({"string.empty":"Please provide a valid skill"}))
+    .items(Joi.string().required().messages({"string.empty":"Please provide a valid skill"})).min(1)
     .required(),
   education: Joi.array()
     .items(
@@ -49,7 +49,7 @@ const resumeRequestSchema = Joi.object({
           .required()
           .messages({"string.empty":"Please provide a valid description for your education"}),
       })
-    )
+    ).min(1)
     .required(),
   experience: Joi.array()
     .items(
@@ -68,7 +68,7 @@ const resumeRequestSchema = Joi.object({
             {"string.empty":"Please provide your responsibility in your company in valid form"}
           ),
       })
-    )
+    ).min(1)
     .required(),
   achievements: Joi.array()
     .items(
@@ -82,7 +82,7 @@ const resumeRequestSchema = Joi.object({
             {"string.empty":"Please provide valid information about the awards you have received"}
           ),
       })
-    )
+    ).min(1)
     .required()
 });
 

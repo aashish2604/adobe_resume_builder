@@ -10,8 +10,11 @@ class AbstractRouteController {
     this.router = express.Router();
   }
 
-  async InitializeController(link,checkHeaders) {
+  async InitializeController(link,checkHeaders,type) {
+    if(type=='post')
     await this.InitializePost(checkHeaders);
+    else
+    await this.InitializeGet(checkHeaders);
   }
 
   async runService(req, res) {
@@ -23,6 +26,12 @@ class AbstractRouteController {
     this.router.post(this.path,checkHeaders, this.runService.bind(this));
     else 
     this.router.post(this.path, this.runService.bind(this));
+  }
+  async InitializeGet(checkHeaders) {
+    if(checkHeaders!==undefined)
+    this.router.get(this.path,checkHeaders, this.runService.bind(this));
+    else 
+    this.router.get(this.path, this.runService.bind(this));
   }
 }
 

@@ -1,4 +1,7 @@
 const AppConstants=require("../../constants/app_constants");
+const Logger=require("../../utils/logger");
+
+const logger=Logger.getLogger();
 
 const appConstants=new AppConstants();
 
@@ -7,8 +10,8 @@ class ObjectTransformer {
   urlParser(data) {
     const regex = appConstants.ANCHOR_TAG_REGEX;
     const secondRegex=appConstants.URL_EXCL_ANCHOR_REGEX;
-    const output = data.replace(regex, (match, innerText) => `<a href="${match.replace(`[${innerText}]`,"")}">${innerText}</a>`);
-    const result = output.replace(secondRegex, '<a href="$&">$&</a>');
+    const output = data.replace(regex, (match, innerText) => `<a href=\"${match.replace(`[${innerText}]`,"")}\">${innerText}</a>`);
+    const result = output.replace(secondRegex, '<a href=\"$&\">$&</a>');
     return result;
   }
 
@@ -56,7 +59,7 @@ class ObjectTransformer {
         LastName: input.personal_information.last_name,
         EmailAddress: input.personal_information.email_address,
         PhoneNumber: input.personal_information.phone_number,
-        LinkedIn: `<a href="${input.personal_information.linkedin_url}">linkedIn</a>`,
+        LinkedIn: `<a href=\"${input.personal_information.linkedin_url}\">linkedIn</a>`,
         JobTitle: this.urlParser(input.job_title),
         Summary: this.urlParser(input.career_objective),
         Skills: input.skills.map((str)=>this.urlParser(str)),
@@ -66,7 +69,7 @@ class ObjectTransformer {
       };
       return response;
     } catch (error) {
-      console.error(error);
+      logger.info(error);
       throw error;
     }
   }
