@@ -24,7 +24,7 @@ describe('server', () => {
 
   test('should initialize routes', async () => {
     const mockInitializeRoutes = jest.spyOn(InitializeRoutes, 'Initialize').mockResolvedValue();
-    const host = 'localhost';
+    const host = '0.0.0.0';
     const port = 4000;
 
     await server();
@@ -34,7 +34,7 @@ describe('server', () => {
 
   test('should start the server', async () => {
     const mockListen = jest.spyOn(mockExpress, 'listen').mockImplementation((port, host, callback) => callback());
-    const host = 'localhost';
+    const host = '0.0.0.0';
     const port = 4000;
 
     await server();
