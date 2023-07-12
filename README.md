@@ -1,3 +1,10 @@
+# Demo
+
+I will suggest you to watch the demo that I have created for this project. It comprehensly covers every aspect of the project and will save you from reading the entire documentation below.\
+**Suggestion** - Watch at 1.5x or 1.75x
+
+[![adobe_resume_builder](https://img.youtube.com/vi/1j_9cEH8GaU/0.jpg)](https://www.youtube.com/watch?v=1j_9cEH8GaU)
+
 # Overview
 
 ## Backend
@@ -48,6 +55,8 @@ I have created 3 frontends:
 * ***Windows app*** - [setup](https://drive.google.com/file/d/1JvqFr-mEbRV1hcbD3CvNA8x1LYpfbz3c/view?usp=sharing)
 
 The frontend is created with the help of **Flutter**.The repo can be found here [Github](https://github.com/aashish2604/resume_builder_ui).
+
+**NOTE** - When trying to download and installing the windows setup, your browser and your OS might try to prevent you from doing so. Whenever such a situation arises look for the options like "more" or tap the "3 dots" and tap "keep" or "run anyway". Trust me it won't harm your system. This is only happening because it does not have a license number attached to it.
 
 # Testing Backend locally
 The scripts of the project is as follows
@@ -210,7 +219,7 @@ The architecture of this project follows **S.O.L.I.D** principles which are 5 ma
 * ***I*** – Interface Segregation
 * ***D*** – Dependency Inversion
 
-Lets discuss see the examples where it is followed.
+Lets discuss the examples where it is followed.
 
 ### Single Responsibility
 The classes inside the services are a perfect example of this 
